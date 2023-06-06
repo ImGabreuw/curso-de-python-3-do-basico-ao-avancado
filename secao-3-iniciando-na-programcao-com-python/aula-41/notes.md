@@ -4,7 +4,7 @@
 
 O operador lógico `ou` (inclusivo) é representado por `or`.
 
-Para que uma expressão com `orr` seja avaliada como verdadeira é necessários que pelo menos uma condição sejam verdadeiras, como é possível ver na **tabela verdade**:
+Para que uma expressão com `or` seja avaliada como verdadeira é necessários que pelo menos uma condição sejam verdadeiras, como é possível ver na **tabela verdade**:
 
 | condição 1 | condição 2 | operação `and` |
 | :--------: | :--------: | :------------: |
