@@ -17,3 +17,5 @@ soma(1, 2, 3) # x=1 y=2 z=3 6
 ```
 
 Geralmente os valores padrão são valores considerados _falsy_ pelo Python, pois com isso é possível fazer verificações mais simples (com `is` por exemplo) e evitar bugs desnecessários.
+
+Além disso todos os parâmetros posteriores de um parâmetro nomeado deverão ser nomeados também.
