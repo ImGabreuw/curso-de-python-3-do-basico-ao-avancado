@@ -46,3 +46,15 @@ Aqui estão algumas características e exemplos que demonstram a natureza de pri
    ```
 
 Essa capacidade de tratar funções como cidadãs de primeira classe em Python é extremamente útil para criar código flexível, modular e de alto nível. Permite a implementação de conceitos como programação funcional e callback, onde as funções podem ser passadas e executadas em diferentes contextos e situações.
+
+### **OBS**
+
+Academicamente, os termos Higher Order Functions e First-Class Functions têm significados diferentes.
+
+- _Higher Order Functions_: Funções que podem receber e/ou retornar outras funções
+
+- _First-Class Functions_: Funções que são tratadas como outros tipos de dados comuns (strings, inteiros, etc...)
+
+Não faria muita diferença no seu código, mas penso que deveria lhe informar isso.
+
+> Esses termos podem ser diferentes e ainda refletir o mesmo significado.
