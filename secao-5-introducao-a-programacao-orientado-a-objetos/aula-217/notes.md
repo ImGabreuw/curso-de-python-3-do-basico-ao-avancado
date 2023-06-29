@@ -1,6 +1,6 @@
 # Composição - Python Orientado a Objetos
 
-A composição é um tipo de relacionamento entre classes em programação orientada a objetos, onde uma classe é composta por outras classes como suas partes constituintes. Na composição, a existência das partes está diretamente ligada à existência da classe composta. Isso significa que as partes são criadas e destruídas junto com a classe composta.
+A composição é um tipo de relacionamento entre classes em programação orientada a objetos, onde uma classe é composta por outras classes como suas partes constituintes. A composição é um subconjunto da agregação e a forma mais forte no relacionamento de objetos. Na composição, a existência das partes está diretamente ligada à existência da classe composta. Isso significa que as partes são criadas e destruídas junto com a classe composta.
 
 Aqui está um exemplo que representa uma composição entre classes no diagrama UML:
 
