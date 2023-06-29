@@ -1,14 +1,12 @@
 # Relações entre classes: associação, agregação e composição
 
-A associação é um dos tipos de relacionamento entre classes em programação orientada a objetos, onde uma classe está relacionada a outra classe de alguma forma. A associação representa uma ligação entre objetos de classes diferentes, indicando que um objeto de uma classe usa, possui ou está relacionado a um ou mais objetos de outra classe.
+A associação é um dos tipos de relacionamento fraco entre classes em programação orientada a objetos, onde uma classe está relacionada a outra classe de alguma forma. A associação representa uma ligação entre objetos de classes diferentes, indicando que um objeto de uma classe usa, possui ou está relacionado a um ou mais objetos de outra classe.
 
 Existem três tipos comuns de associação:
 
 1. Associação unidirecional: Nesse tipo de associação, uma classe usa ou possui um objeto de outra classe, mas a classe referenciada não está ciente da classe que a está utilizando. Essa é a forma mais simples de associação.
 
 2. Associação bidirecional: Nesse tipo de associação, as classes envolvidas estão cientes uma da outra e podem interagir diretamente.
-
-3. Associação agregação/composição: Essa forma de associação indica que uma classe possui uma coleção de objetos de outra classe, onde a destruição da classe proprietária não implica necessariamente na destruição dos objetos pertencentes a ela.
 
 Aqui está um exemplo que representa uma associação entre classes no diagrama UML:
 
