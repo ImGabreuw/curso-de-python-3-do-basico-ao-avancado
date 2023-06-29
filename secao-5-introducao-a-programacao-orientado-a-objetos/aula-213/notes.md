@@ -4,7 +4,7 @@ Em Python, o decorador `@property` também pode ser usado para criar métodos se
 
 Para criar um setter usando o decorador `@property`, você precisa definir um método com o mesmo nome do atributo desejado, seguido do decorador `@atributo.setter`. Esse método setter será chamado automaticamente sempre que você atribuir um valor a esse atributo.
 
-> Por convenção, usa-se 1 ou 2 underline para indicar que um propriedade é privada, ou seja, só pode ser acessada por dentro da classe a qual foi declarada.
+> Por convenção, usa-se 1 ou 2 underline para indicar que um propriedade só pode ser acessada por dentro da classe a qual foi declarada.
 
 Aqui está um exemplo de como usar o decorador `@property` para criar um setter:
 
