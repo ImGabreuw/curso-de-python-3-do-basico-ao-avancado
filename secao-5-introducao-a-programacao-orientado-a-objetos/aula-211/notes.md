@@ -1,0 +1,1 @@
+# method vs @classmethod vs @staticmethod
