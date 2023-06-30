@@ -1,0 +1,2 @@
+Error: Ocorreu um erro!
+Success: Sucesso!
