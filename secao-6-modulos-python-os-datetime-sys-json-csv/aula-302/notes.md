@@ -36,41 +36,46 @@ Passo 4: Escrever o código Python para enviar e-mails
 
 Aqui está um exemplo de código Python que utiliza a biblioteca 'smtplib' para enviar um e-mail usando o SMTP do Gmail:
 
+No código fornecido, a parte relacionada ao SMTP é a seguinte:
+
 ```python
-import smtplib
-from email.mime.text import MIMEText
-
-# Configurações do servidor SMTP do Gmail
-smtp_host = 'smtp.gmail.com'
+# Configurações SMTP
+smtp_server = 'smtp.gmail.com'
 smtp_port = 587
+smtp_username = os.getenv('FROM_EMAIL', '')
+smtp_password = os.getenv('EMAIL_PASSWORD', '')
 
-# Seu endereço de e-mail e senha de aplicativo
-sender_email = 'seu_email@gmail.com'
-app_password = 'sua_senha_de_aplicativo'
-
-# Destinatário do e-mail
-recipient_email = 'destinatario@example.com'
-
-# Criação da mensagem de e-mail
-message = MIMEText('Olá, este é um e-mail de teste enviado pelo Python!')
-message['Subject'] = 'E-mail de teste'
-message['From'] = sender_email
-message['To'] = recipient_email
-
-# Conexão e autenticação com o servidor SMTP
-smtp_server = smtplib.SMTP(smtp_host, smtp_port)
-smtp_server.starttls()
-smtp_server.login(sender_email, app_password)
-
-# Envio do e-mail
-smtp_server.send_message(message)
-
-# Encerramento da conexão com o servidor SMTP
-smtp_server.quit()
+# Envia o e-mail
+with smtplib.SMTP(smtp_server, smtp_port) as server:
+    server.ehlo()
+    server.starttls()
+    server.login(smtp_username, smtp_password)
+    server.send_message(mime_multipart)
+    print('E-mail enviado com sucesso!')
 ```
 
-Certifique-se de substituir `'seu_email@gmail.com'` pelo seu próprio endereço de e-mail e `'sua_senha_de_aplicativo'` pela senha de aplicativo gerada pelo Gmail.
+Nesta seção, você está configurando o servidor SMTP, portas e informações de autenticação para enviar o e-mail.
 
-Esse código estabelece uma conexão com o servidor SMTP do Gmail, autentica-se usando seu endereço de e-mail e senha de aplicativo, cria uma mensagem de e-mail e a envia para o destinatário especificado.
+- `smtp_server`: É definido como `'smtp.gmail.com'`, que é o servidor SMTP do Gmail.
+- `smtp_port`: É definido como `587`, que é a porta padrão para comunicações SMTP.
+- `smtp_username`: É atribuído ao valor de `os.getenv('FROM_EMAIL', '')`, que obtém o endereço de e-mail do remetente a partir de uma variável de ambiente chamada `'FROM_EMAIL'`. Esse valor é necessário para autenticação no servidor SMTP.
+- `smtp_password`: É atribuído ao valor de `os.getenv('EMAIL_PASSWORD', '')`, que obtém a senha de e-mail do remetente a partir de uma variável de ambiente chamada `'EMAIL_PASSWORD'`. Essa senha é necessária para autenticação no servidor SMTP.
+
+Em seguida, a parte do código que envia o e-mail começa com:
+
+```python
+with smtplib.SMTP(smtp_server, smtp_port) as server:
+    server.ehlo()
+    server.starttls()
+    server.login(smtp_username, smtp_password)
+    server.send_message(mime_multipart)
+    print('E-mail enviado com sucesso!')
+```
+
+- `smtplib.SMTP(smtp_server, smtp_port)`: Cria uma conexão com o servidor SMTP usando o endereço do servidor e a porta fornecidos.
+- `server.ehlo()`: Executa o "ehlo" (hello extendido) para iniciar a comunicação com o servidor SMTP.
+- `server.starttls()`: Inicia uma conexão TLS (Transport Layer Security) para criptografar a comunicação entre o cliente e o servidor SMTP.
+- `server.login(smtp_username, smtp_password)`: Realiza a autenticação no servidor SMTP usando o nome de usuário (endereço de e-mail) e a senha fornecidos.
+- `server.send_message(mime_multipart)`: Envia a mensagem de e-mail, que foi preparada anteriormente como um objeto `MIMEMultipart`, usando o servidor SMTP autenticado.
 
 Lembre-se de que o Gmail possui restrições de envio de e-mails em grandes quantidades para evitar abusos. Portanto, é importante verificar as políticas de uso do Gmail para garantir o envio adequado de e-mails em seu aplicativo Python.
