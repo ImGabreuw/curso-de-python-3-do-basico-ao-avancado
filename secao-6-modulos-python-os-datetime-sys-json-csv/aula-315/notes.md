@@ -14,16 +14,23 @@ Aqui está um exemplo de como usar o ChromeDriver com o Selenium em Python:
 
 ```python
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 # Especifique o caminho para o arquivo executável do ChromeDriver
 chrome_driver_path = "caminho/para/chromedriver"
 
 # Configurar as opções do Chrome
-chrome_options = webdriver.ChromeOptions()
 # Adicionar opções extras, se necessário
+chrome_options = webdriver.ChromeOptions()
+
+# Configurar o serviço a ser utilizado pelo Chrome
+chrome_service = Service(executable_path=chrome_driver_path)
 
 # Inicializar o driver do Chrome
-driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
+driver = webdriver.Chrome(
+  service=chrome_service,
+  options=chrome_options,
+  )
 
 # Exemplo de uso do Selenium com o ChromeDriver
 driver.get("https://www.google.com")
