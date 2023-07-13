@@ -14,13 +14,13 @@ A forma mais simples de atingir tal objetivo é a partir da função `run()`. Ab
 
 - `text`: se for `True`, as entradas e saídas serão tradadas como texto e automaticamente codificadas ou decodificadas com o conjunto de caracteres padrão do sistema operacional (geralmente é UTF-8)
 
-    > Por padrão, ao capturar a saída da execução do subprocesso, a função `run` retorna no formato de bytes.
+  > Por padrão, ao capturar a saída da execução do subprocesso, a função `run` retorna no formato de bytes.
 
 - `shell`: Se for `True`, será concedido o acesso ao shell do sistema operacional para o seu programa. Caso essa opção seja habilitada, é recomendado enviar o comando e os argumentos juntos.
 
 - `executable`: pode ser usado para especificar o caminho do executável que iniciará o subprocesso.
 
-Os retornos esperados são: 
+Os retornos esperados são:
 
 - `stdout`: saída do comando executado
 
@@ -35,5 +35,26 @@ Os retornos esperados são:
 Aqui está um exemplo utilizando a função `subprocess.run()` para executar o comando `ping`:
 
 ```python
+import subprocess
+import sys
 
+cmd = ['ping', '127.0.0.1', "-c", "4"]
+encoding = 'utf_8'
+system = sys.platform
+
+if system == "win32":
+    cmd = ['ping', '127.0.0.1']
+    encoding = 'cp850'
+
+
+proc = subprocess.run(
+    cmd, capture_output=True,
+    text=True, encoding=encoding,
+    shell=True,
+)
+
+print()
+print(proc.stdout)
 ```
+
+Como pode ver, o comando no Windows é apenas `ping 127.0.0.1`, pois por padrão o limite de pings é definido como 4 a partir da opção `-c`.
