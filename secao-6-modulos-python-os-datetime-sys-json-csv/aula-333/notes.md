@@ -2,6 +2,12 @@
 
 O OpenPyXL é uma biblioteca Python de código aberto que permite trabalhar com arquivos do Excel nos formatos XLSX, XLSM, XLTX e XLTM. Ele fornece recursos para criar, modificar e manipular planilhas do Excel usando o Python.
 
+Primeiramente, é necessário instalar a biblioteca com o gerenciador de dependências `pip`:
+
+```console
+$ pip install openpyxl
+```
+
 Aqui está uma breve explicação de cada um desses formatos de arquivo:
 
 1. XLSX (Excel Workbook): É o formato de arquivo padrão para planilhas do Excel a partir da versão 2007. O arquivo XLSX contém várias planilhas, fórmulas, gráficos e formatação, além de suportar recursos avançados do Excel, como macros (VBA). O OpenPyXL pode criar, ler e modificar arquivos XLSX.
