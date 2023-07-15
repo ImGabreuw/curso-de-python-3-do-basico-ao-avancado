@@ -28,9 +28,9 @@ with connection:
 
   with connection.cursor() as cursor2
     # Insere novos valores usando INSERT
-    insert_query = "INSERT INTO customers (name, age) VALUES (?, ?)"
-    dados = ("Luiz", 25)
-    result = cursor2.execute(insert_query, dados)
+    insert_query = "INSERT INTO customers (name, age) VALUES (%s, %s)"
+    data = ("Luiz", 25)
+    result = cursor2.execute(insert_query, data)
 
     # Confirma a operação e aplica as alterações no banco de dados
     connection.commit()
@@ -45,6 +45,6 @@ Em seguida, criamos dois objetos de cursor, `cursor1` e `cursor2` com _context m
 
 Usamos o primeiro cursor, `cursor1`, para executar a instrução `TRUNCATE` na tabela existente. A instrução `TRUNCATE` remove todos os registros da tabela, mas mantém a estrutura da tabela intacta.
 
-Em seguida, usamos o segundo cursor, `cursor2`, para executar a instrução `INSERT` com o método `execute`. A instrução `INSERT` insere novos valores na tabela. Utilizamos o placeholder `?` para os valores que serão substituídos pelos valores reais na consulta. O método `execute` permite inserir 1 conjunto de valores passando uma tuplas contendo os valores a serem inseridos.
+Em seguida, usamos o segundo cursor, `cursor2`, para executar a instrução `INSERT` com o método `execute`. A instrução `INSERT` insere novos valores na tabela. Utilizamos o placeholder `%s` para os valores que serão substituídos pelos valores reais na consulta. O método `execute` permite inserir 1 conjunto de valores passando uma tuplas contendo os valores a serem inseridos.
 
 Por fim, confirmamos as alterações e aplicamos as modificações no banco de dados chamando o método `commit` da conexão.
