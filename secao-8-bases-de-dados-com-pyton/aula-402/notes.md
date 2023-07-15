@@ -5,8 +5,10 @@ PyMySQL é uma biblioteca em Python que permite a conexão e interação com ban
 Primeiramente, é necessário instalar a biblioteca PyMySQL com o gerenciador de dependências `pip`:
 
 ```console
-$ pip install pymysql
+$ pip install pymysql types-pymysql
 ```
+
+> **OBS**: o módulo `pymysql` é a tipagem do `pymysql`, e é necessário apenas para desenvolvedores que utilizam algum linter de código.
 
 Aqui está um exemplo de como usar o PyMySQL para se conectar a um banco de dados MySQL:
 
